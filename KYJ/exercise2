@@ -1,4 +1,4 @@
-## toy code2: 
+## toy code2: https://github.com/lmoroney/dlaicourse/blob/master/Course%201%20-%20Part%204%20-%20Lesson%202%20-%20Notebook.ipynb
 ## exercise2: https://colab.research.google.com/github/lmoroney/dlaicourse/blob/master/Exercises/Exercise%202%20-%20Handwriting%20Recognition/Exercise2-Question.ipynb
 
 import tensorflow as tf
@@ -17,12 +17,14 @@ x_train, x_test = x_train / 255.0, x_test / 255.0
 callbacks = myCallback()
 
 model = tf.keras.models.Sequential([
-  tf.keras.layers.Flatten(input_shape=(28, 28)),
-  tf.keras.layers.Dense(512, activation=tf.nn.relu),
-  tf.keras.layers.Dense(10, activation=tf.nn.softmax)
+  tf.keras.layers.Flatten(input_shape=(28, 28)), ## changable
+  tf.keras.layers.Dense(512, activation=tf.nn.relu), ## changable
+  tf.keras.layers.Dense(10, activation=tf.nn.softmax) ## changable
 ])
-model.compile(optimizer='adam',
-              loss='sparse_categorical_crossentropy',
+model.compile(optimizer=tf.train.AdamOptimizer(), ## changable
+              loss='sparse_categorical_crossentropy', ## changable
               metrics=['accuracy'])
 
 model.fit(x_train, y_train, epochs=10, callbacks=[callbacks])
+model.evaluate(x_test, y_test)
+
