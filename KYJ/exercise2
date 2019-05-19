@@ -17,7 +17,7 @@ x_train, x_test = x_train / 255.0, x_test / 255.0
 callbacks = myCallback()
 
 model = tf.keras.models.Sequential([
-  tf.keras.layers.Flatten(input_shape=(28, 28)), ## changable
+  tf.keras.layers.Flatten(input_shape=(28, 28)), ## changable / ( ) has an error.
   tf.keras.layers.Dense(512, activation=tf.nn.relu), ## changable
   tf.keras.layers.Dense(10, activation=tf.nn.softmax) ## changable
 ])
