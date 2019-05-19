@@ -19,12 +19,12 @@ x_test = x_test.reshape(10000, 28, 28, 1)
 x_test=x_test/255.0
 
 model = tf.keras.models.Sequential([
-  tf.keras.layers.Conv2D(32, (3,3), activation='relu', input_shape=(28, 28, 1)), ## 26,26,64
+  tf.keras.layers.Conv2D(64, (3,3), activation='relu', input_shape=(28, 28, 1)), ## 26,26,64
   ## changable (generate 32 filters, 3 by 3, and their act. is relu, which means the nega. values will be thrown (a)way)
   ## because of 3,3 filters, 28,28 -> 26x26 pixels can be conversed.
   tf.keras.layers.MaxPooling2D(2, 2), ## 13,13,64 (26/2=13)
   ## changable (for every four pixels, the biggest one will survive)
-  tf.keras.layers.Conv2D(32, (3,3), activation='relu', input_shape=(28, 28, 1)), ## 11,11,64
+  tf.keras.layers.Conv2D(64, (3,3), activation='relu', input_shape=(28, 28, 1)), ## 11,11,64
   tf.keras.layers.MaxPooling2D(2, 2), ## 5,5,64 (11/2=5)
   tf.keras.layers.Flatten(), ## 5x5x64 = 1,600
   tf.keras.layers.Dense(128, activation='relu'),
