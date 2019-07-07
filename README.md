@@ -1,2 +1,3 @@
-Project: Tumor Deconvolution DREAM Challenge
-=========
+
+Target deconvolution DREAM Challenge
+====================================
